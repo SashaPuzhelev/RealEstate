@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools"
+>
+    <item android:id="@+id/search"
+          android:icon="@drawable/search"
+          app:showAsAction="always"
+          tools:ignore="MenuTitle"
+    ></item>
+    <item android:id="@+id/like"
+          android:icon="@drawable/like"
+          app:showAsAction="always"
+          tools:ignore="MenuTitle"
+    >
+    </item>
+    <item
+            android:id="@+id/menu"
+            android:icon="@drawable/menu_icon"
+            app:showAsAction="always"
+            tools:ignore="MenuTitle"
+    >
+        <menu>
+            <item
+                    android:id="@+id/enter"
+                    android:title="Войти"
+            >
+            </item>
+        </menu>
+    </item>
+
+
+
+</menu>
