@@ -26,32 +26,32 @@ import com.example.realestate.MainActivity;
 import com.example.realestate.R;
 import com.example.realestate.ui.login.LoginViewModel;
 import com.example.realestate.ui.login.LoginViewModelFactory;
-import com.example.realestate.databinding.ActivityLoginBinding;
+import com.example.realestate.databinding.ActivityRegistrationBinding;
 
-public class LoginActivity extends AppCompatActivity {
+
+public class RegistrationActivity extends AppCompatActivity {
 
     private LoginViewModel loginViewModel;
-    private ActivityLoginBinding binding;
+    private ActivityRegistrationBinding binding;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setLogo(R.drawable.logo);
         actionBar.setDisplayUseLogoEnabled(true);
         actionBar.setTitle(R.string.company_name);
-        binding = ActivityLoginBinding.inflate(getLayoutInflater());
+
+        binding = ActivityRegistrationBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         loginViewModel = new ViewModelProvider(this, new LoginViewModelFactory())
                 .get(LoginViewModel.class);
 
-        final EditText usernameEditText = binding.username;
-        final EditText passwordEditText = binding.password;
-        final Button loginButton = binding.login;
-        final Button registrationButton = binding.registration;
+        final EditText usernameEditText = binding.newUsername;
+        final EditText passwordEditText = binding.newPassword;
+        final Button registrationAllButton = binding.registrationAll;
         final ProgressBar loadingProgressBar = binding.loading;
 
         loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
@@ -60,7 +60,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (loginFormState == null) {
                     return;
                 }
-                loginButton.setEnabled(loginFormState.isDataValid());
+                registrationAllButton.setEnabled(loginFormState.isDataValid());
                 if (loginFormState.getUsernameError() != null) {
                     usernameEditText.setError(getString(loginFormState.getUsernameError()));
                 }
@@ -121,7 +121,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        loginButton.setOnClickListener(new View.OnClickListener() {
+        registrationAllButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 loadingProgressBar.setVisibility(View.VISIBLE);
@@ -129,30 +129,6 @@ public class LoginActivity extends AppCompatActivity {
                         passwordEditText.getText().toString());
             }
         });
-        registrationButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent( LoginActivity.this, RegistrationActivity.class);
-                startActivity(intent);
-            }
-        });
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.cancel_menu, menu);
-        return true;
-    }
-
-    public boolean onOptionsItemSelected(MenuItem item)
-    {
-        int idItem = item.getItemId();
-        if (idItem == R.id.cancel)
-        {
-            Intent intent = new Intent(this, MainActivity.class);
-            startActivity(intent);
-        }
-        return true;
     }
 
     private void updateUiWithUser(LoggedInUserView model) {
@@ -164,6 +140,19 @@ public class LoginActivity extends AppCompatActivity {
     private void showLoginFailed(@StringRes Integer errorString) {
         Toast.makeText(getApplicationContext(), errorString, Toast.LENGTH_SHORT).show();
     }
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.cancel_menu, menu);
+        return true;
+    }
 
-
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        int idItem = item.getItemId();
+        if (idItem == R.id.cancel)
+        {
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+        }
+        return true;
+    }
 }
