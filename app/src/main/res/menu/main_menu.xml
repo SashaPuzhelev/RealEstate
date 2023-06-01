@@ -26,6 +26,11 @@
                     android:title="Войти"
             >
             </item>
+            <item
+                    android:id="@+id/home"
+                    android:title="Главная"
+            >
+            </item>
         </menu>
     </item>
 
