@@ -20,4 +20,10 @@
         <item name="actionBarStyle">@style/MainActionBarStyle</item>
         <item name="editTextStyle">@style/MainEditTextStyle</item>
     </style>
+    <style name="Theme.MainTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.MainTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+    <style name="Theme.MainTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
 </resources>
