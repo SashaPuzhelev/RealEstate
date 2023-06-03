@@ -23,6 +23,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.realestate.BaseActivity;
+import com.example.realestate.CancelMenuActivity;
 import com.example.realestate.MainActivity;
 import com.example.realestate.R;
 import com.example.realestate.ui.login.LoginViewModel;
@@ -30,7 +31,7 @@ import com.example.realestate.ui.login.LoginViewModelFactory;
 import com.example.realestate.databinding.ActivityRegistrationBinding;
 
 
-public class RegistrationActivity extends BaseActivity {
+public class RegistrationActivity extends CancelMenuActivity {
 
     private LoginViewModel loginViewModel;
     private ActivityRegistrationBinding binding;
@@ -136,19 +137,9 @@ public class RegistrationActivity extends BaseActivity {
     private void showLoginFailed(@StringRes Integer errorString) {
         Toast.makeText(getApplicationContext(), errorString, Toast.LENGTH_SHORT).show();
     }
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.cancel_menu, menu);
-        return true;
-    }
-
-    public boolean onOptionsItemSelected(MenuItem item)
-    {
-        int idItem = item.getItemId();
-        if (idItem == R.id.cancel)
-        {
-            Intent intent = new Intent(this, LoginActivity.class);
-            startActivity(intent);
-        }
-        return true;
+    @Override
+    public void onLogoClicked() {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 }

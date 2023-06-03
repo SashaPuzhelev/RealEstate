@@ -3,10 +3,9 @@ package com.example.realestate;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuItem;
-import androidx.appcompat.app.AppCompatActivity;
 import com.example.realestate.ui.login.LoginActivity;
 
-public class MainMenuActivity extends BaseActivity {
+public abstract class MainMenuActivity extends BaseActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu, menu);
@@ -26,7 +25,7 @@ public class MainMenuActivity extends BaseActivity {
             Intent intent = new Intent(this, LikeActivity.class);
             startActivity(intent);
         }
-        if (idItem == R.id.home)
+        if (idItem == R.id.home_menu)
         {
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);

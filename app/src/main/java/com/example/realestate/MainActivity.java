@@ -31,6 +31,12 @@ public class MainActivity extends MainMenuActivity {
         }
         );
     }
+
+    @Override
+    public void onLogoClicked() {
+
+    }
+
     public void onClickRegion(View view)
     {
 

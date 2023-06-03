@@ -4,10 +4,9 @@ import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import androidx.appcompat.app.AppCompatActivity;
 import com.example.realestate.ui.login.LoginActivity;
 
-public class CatalogMenuActivity extends BaseActivity {
+public abstract class CatalogMenuActivity extends BaseActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.catalog_menu, menu);
         return true;
@@ -26,7 +25,7 @@ public class CatalogMenuActivity extends BaseActivity {
             Intent intent = new Intent(this, LikeActivity.class);
             startActivity(intent);
         }
-        if (idItem == R.id.home)
+        if (idItem == R.id.home_menu)
         {
             Intent intent = new Intent(this, MainActivity.class);
             startActivity((intent));
@@ -38,5 +37,7 @@ public class CatalogMenuActivity extends BaseActivity {
         return true;
     }
     public void onClickFilters(View view) {
+        Intent intent = new Intent(this, FiltersActivity.class);
+        startActivity(intent);
     }
 }

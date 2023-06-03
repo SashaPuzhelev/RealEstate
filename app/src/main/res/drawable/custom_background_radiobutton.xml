@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Выбранное состояние радио-кнопки -->
+    <item android:state_checked="true">
+        <!-- В этом случае мы используем горизонтальную линию с закругленными краями, которая появляется вместо круга -->
+        <shape android:shape="rectangle">
+            <solid android:color="@color/color_secondary"/>
+        </shape>
+    </item>
+    <!-- Невыбранное состояние радио-кнопки -->
+    <item android:state_checked="false">
+        <!-- В этом случае мы используем прозрачный элемент, чтобы скрыть круг -->
+        <shape android:shape="rectangle">
+            <solid android:color="@color/color_primary"/>
+        </shape>
+    </item>
+</selector>

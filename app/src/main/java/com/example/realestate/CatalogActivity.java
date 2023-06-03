@@ -15,4 +15,9 @@ public class CatalogActivity extends CatalogMenuActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_catalog);
     }
+    @Override
+    protected void onLogoClicked() {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
 }

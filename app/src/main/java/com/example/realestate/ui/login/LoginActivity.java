@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuItem;
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.ActionBar;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -23,13 +24,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.realestate.BaseActivity;
+import com.example.realestate.CancelMenuActivity;
 import com.example.realestate.MainActivity;
 import com.example.realestate.R;
 import com.example.realestate.ui.login.LoginViewModel;
 import com.example.realestate.ui.login.LoginViewModelFactory;
 import com.example.realestate.databinding.ActivityLoginBinding;
 
-public class LoginActivity extends BaseActivity {
+public class LoginActivity extends CancelMenuActivity {
 
     private LoginViewModel loginViewModel;
     private ActivityLoginBinding binding;
@@ -134,23 +136,6 @@ public class LoginActivity extends BaseActivity {
         });
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.cancel_menu, menu);
-        return true;
-    }
-
-    public boolean onOptionsItemSelected(MenuItem item)
-    {
-        int idItem = item.getItemId();
-        if (idItem == R.id.cancel)
-        {
-            Intent intent = new Intent(this, MainActivity.class);
-            startActivity(intent);
-        }
-        return true;
-    }
-
     private void updateUiWithUser(LoggedInUserView model) {
         String welcome = getString(R.string.welcome) + model.getDisplayName();
         // TODO : initiate successful logged in experience
@@ -160,6 +145,10 @@ public class LoginActivity extends BaseActivity {
     private void showLoginFailed(@StringRes Integer errorString) {
         Toast.makeText(getApplicationContext(), errorString, Toast.LENGTH_SHORT).show();
     }
-
+    @Override
+    public void onLogoClicked() {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
 
 }
