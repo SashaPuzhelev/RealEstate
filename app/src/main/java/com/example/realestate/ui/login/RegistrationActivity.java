@@ -22,6 +22,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.realestate.BaseActivity;
 import com.example.realestate.MainActivity;
 import com.example.realestate.R;
 import com.example.realestate.ui.login.LoginViewModel;
@@ -29,7 +30,7 @@ import com.example.realestate.ui.login.LoginViewModelFactory;
 import com.example.realestate.databinding.ActivityRegistrationBinding;
 
 
-public class RegistrationActivity extends AppCompatActivity {
+public class RegistrationActivity extends BaseActivity {
 
     private LoginViewModel loginViewModel;
     private ActivityRegistrationBinding binding;
@@ -37,11 +38,6 @@ public class RegistrationActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayShowHomeEnabled(true);
-        actionBar.setLogo(R.drawable.logo);
-        actionBar.setDisplayUseLogoEnabled(true);
-        actionBar.setTitle(R.string.company_name);
 
         binding = ActivityRegistrationBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
