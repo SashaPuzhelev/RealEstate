@@ -30,6 +30,13 @@ public class MainActivity extends MainMenuActivity {
             }
         }
         );
+        commercialButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, CardActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
