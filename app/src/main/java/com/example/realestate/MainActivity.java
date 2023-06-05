@@ -33,7 +33,35 @@ public class MainActivity extends MainMenuActivity {
         commercialButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, CardActivity.class);
+                Intent intent = new Intent(MainActivity.this, CatalogActivity.class);
+                startActivity(intent);
+            }
+        });
+        houseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, CatalogActivity.class);
+                startActivity(intent);
+            }
+        });
+        rentButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, CatalogActivity.class);
+                startActivity(intent);
+            }
+        });
+        rentForDaysButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, CatalogActivity.class);
+                startActivity(intent);
+            }
+        });
+        newHouseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, CatalogActivity.class);
                 startActivity(intent);
             }
         });
