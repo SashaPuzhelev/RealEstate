@@ -22,8 +22,11 @@ public abstract class CatalogMenuActivity extends BaseActivity {
         }
         if (idItem == R.id.like)
         {
-            Intent intent = new Intent(this, LikeActivity.class);
-            startActivity(intent);
+            if (this.getClass() != LikeActivity.class)
+            {
+                Intent intent = new Intent(this, LikeActivity.class);
+                startActivity(intent);
+            }
         }
         if (idItem == R.id.home_menu)
         {

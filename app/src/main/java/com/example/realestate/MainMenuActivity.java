@@ -27,8 +27,12 @@ public abstract class MainMenuActivity extends BaseActivity {
         }
         if (idItem == R.id.home_menu)
         {
-            Intent intent = new Intent(this, MainActivity.class);
-            startActivity(intent);
+            if (this.getClass() != MainActivity.class)
+            {
+                Intent intent = new Intent(this, MainActivity.class);
+                startActivity(intent);
+            }
+
         }
         return true;
     }
